@@ -5,6 +5,7 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 ## Setup
 
 Make sure to install the dependencies:
+(This is rebecca speaking)
 
 ```bash
 # yarn
@@ -40,5 +41,3 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-This is Rebecca testing git out!
