@@ -12,5 +12,5 @@ datasource db {
 //Carson's Branch inspo.
 //Important prisma command 
 //npx prisma db push --> applies current schema to database. Will not generate a migration file (contributors cant apply/validation the migration)
-// npx prisma migrate dev 
+//npx prisma migrate dev 
 //npx prisma generate 
