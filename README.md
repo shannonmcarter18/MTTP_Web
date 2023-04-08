@@ -40,3 +40,24 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## MTTP Set Up ##  --Shannon Carter
+- Once you have cloned the repository or downloaded the zip file to your local machine run these commands:
+
+Change directories into your working folder:
+
+```bash
+cd MTTP_Web
+```
+
+Install project dependencies: 
+
+```bash
+npm install
+```
+
+Preview your prisma database: 
+
+```bash 
+npx prisma studio
+```
