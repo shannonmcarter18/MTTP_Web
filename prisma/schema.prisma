@@ -1,16 +1,70 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+//Hello MTTP software team! This is your prisma file where you define the schema of your data tables. Below, we create a Student model that accepts the listed 
+// attributes. If you want more examples as to how models in schema.prisma files look like, check out Carson's Village 
+// schema.prisma file in their repo here: https://github.com/UTDallasEPICS/Carson-s-Village/blob/v2/prisma/schema.prisma 
+
+//Additionally, I have linked the article that I also used to create the Student model and api call functions if you want to 
+//further understand the ins and outs of creating an api and database: https://dev.to/prisma/adding-an-api-and-database-to-your-nuxt-app-with-prisma-2nlp 
+//**NOTE: The article linked above uses an old version of Nuxt (Nuxt 2), but whenever you set up your project you should have Nuxt 3 (as of April 2023). 
+//        What does this mean? DO NOT use the article's set up instructions for creating a Nuxt app (AKA Step 0). The commands are outdated.
+
+//By Tom's reccommendation, we are using SQLite as the database connector
+
+//IMPORTANT PRISMA COMMANDS: 
+//(1) npx prisma db push           Applies current schema to database. Will not generate a migration file.
+//(2) npx prisma migrate dev       Generates migration file. (Note: Whenever you are prompted to name migration file, DO NOT INCLUDE SPACES IN YOUR FILE NAME.)
+//(3)**npx prisma generate         **Note: Ask Taz what this command does. I honestly have no clue, what it does, I've only used the first two. 
+//(4) npx prisma studio      	     Runs the database server. Use this to visualize the database.
+// ========> Run commands 1 and 2 in your terminal whenever a change to the schema is made
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url = "file:./dev.db"
 }
-//Carson's Branch inspo.
-//Important prisma command 
-//npx prisma db push --> applies current schema to database. Will not generate a migration file (contributors cant apply/validation the migration)
-// npx prisma migrate dev 
-//npx prisma generate 
+
+// ===========> Attempt 2 at Student schema
+model Student{
+  id          Int     @id @default(autoincrement())
+  firstName   String  
+  lastName    String
+  phoneNumber String?
+  email       String  @unique
+  dateOfBirth String
+  address     String
+}
+
+// ===========> Starter template schema with Posts and Users
+// model Post{
+//   id        Int      @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   published Boolean  @default(false)
+//   author    User? @relation(fields: [authorId], references: [id])
+//   authorId Int?
+// }
+
+// model User {
+//   id    Int     @id @default(autoincrement())
+//   email String  @unique
+//   name  String?
+//   posts Post[]
+// }
+
+// ===========>First attempt at Student schema
+// //   model Student {
+// //     id          Int @id @default(autoincrement())
+// //     firstName   String?
+// //     lastName    String?
+// //     phoneNumber String @default("")
+// //     email       String @unique
+// //     dateOfBirth DateTime @unique
+// //     address     String  @default("")
+// //     posts Post[]
+  
+// //     @@map("student_responses")
+// //   }
